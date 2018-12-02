@@ -1,0 +1,17 @@
+[Unit]
+Description=export open broadcaster metrics
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env obs2prom
+RestartSec=1
+Restart=always
+SyslogIdentifier=obs2prom
+
+[Install]
+WantedBy=multi-user.target
+
+[Exec]
+StandardError=null
